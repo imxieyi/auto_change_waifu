@@ -1,0 +1,9 @@
+config.py
+*.png
+*.jpg
+*.xml
+*.session
+.vscode/
+venv/
+__pycache/
+*.pyc
