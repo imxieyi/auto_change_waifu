@@ -63,7 +63,7 @@ for _ in range(count):
     if len(faces) == 0:
         print('No face detected')
         continue
-    if len(faces) > 2:
+    if len(faces) > 1:
         print('Too many faces:', len(faces))
         continue
     print('Detected', len(faces), 'faces')
