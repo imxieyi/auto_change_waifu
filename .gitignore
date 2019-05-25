@@ -7,3 +7,5 @@ config.py
 venv/
 __pycache/
 *.pyc
+*.log
+*.session-journal
