@@ -77,12 +77,12 @@ for _ in range(count):
 
 ### Set profile photo
 
-    # uploaded = client.upload_file(str_encoded)
-    # print('Uploaded ID:', uploaded.id)
-    # client(UploadProfilePhotoRequest(uploaded))
-    # print('Successfully changed profile photo')
+    uploaded = client.upload_file(str_encoded)
+    print('Uploaded ID:', uploaded.id)
+    client(UploadProfilePhotoRequest(uploaded))
+    print('Successfully changed profile photo')
 
 ### Log
-    with open('avatar.log', 'w+') as f:
+    with open('avatar.log', 'a') as f:
         f.write(image_detail_url + '\n')
     break
