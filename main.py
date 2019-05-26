@@ -22,9 +22,20 @@ client.start()
 
 print('Logged in as', client.get_me().username)
 
-### Download image list
+### Get number of pages
 
 data = urllib.request.urlopen(search_url).read()
+html = etree.HTML(data)
+page_links = html.xpath('//*[@id="paginator"]/div/a')
+pages = int(page_links[-2].text)
+print('Got', page_links[-2].text, 'pages')
+
+### Download image list
+
+page = randint(1, pages)
+print('Selected page', page)
+search_url_page = search_url + '&page=' + str(page)
+data = urllib.request.urlopen(search_url_page).read()
 html = etree.HTML(data)
 image_detail_urls = html.xpath("//ul[@id='post-list-posts']/li[count(a/span[2][substring-before(text() , 'x') >= substring-after(text() , 'x')]) > 0]//a[@class='thumb']/@href")
 count = len(image_detail_urls)
